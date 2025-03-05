@@ -1,12 +1,16 @@
 class AddressBook {
-    sortContacts() {
-        this.contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+    sortByCity() {
+        this.contacts.sort((a, b) => a.city.localeCompare(b.city));
+    }
+
+    sortByZip() {
+        this.contacts.sort((a, b) => a.zip.localeCompare(b.zip));
     }
 }
 
 // Example Usage
-console.log("Before Sorting:");
+console.log("Before Sorting by City:");
 addressBook.displayContacts();
-addressBook.sortContacts();
-console.log("After Sorting:");
+addressBook.sortByCity();
+console.log("After Sorting by City:");
 addressBook.displayContacts();
