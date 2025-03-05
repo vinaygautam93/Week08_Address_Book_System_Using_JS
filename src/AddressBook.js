@@ -1,8 +1,9 @@
 class AddressBook {
-    getContactCount() {
-        return this.contacts.reduce(count => count + 1, 0);
+    addContact(contact) {
+        if (this.contacts.some(existing => existing.firstName === contact.firstName)) {
+            console.log("Duplicate Entry Found! Contact not added.");
+            return;
+        }
+        this.contacts.push(contact);
     }
 }
-
-// Example Usage
-console.log("Total Contacts: " + addressBook.getContactCount());
