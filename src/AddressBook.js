@@ -1,17 +1,8 @@
 class AddressBook {
-    deleteContact(name) {
-        let index = this.contacts.findIndex(contact => contact.firstName === name);
-        if (index !== -1) {
-            this.contacts.splice(index, 1);
-            return true;
-        }
-        return false;
+    getContactCount() {
+        return this.contacts.reduce(count => count + 1, 0);
     }
 }
 
 // Example Usage
-console.log("Before Deletion:");
-addressBook.displayContacts();
-addressBook.deleteContact("Vinay");
-console.log("After Deletion:");
-addressBook.displayContacts();
+console.log("Total Contacts: " + addressBook.getContactCount());
