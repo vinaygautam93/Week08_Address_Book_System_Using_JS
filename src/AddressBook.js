@@ -1,12 +1,8 @@
 class AddressBook {
-    findByName(name) {
-        return this.contacts.find(contact => contact.firstName === name);
-    }
-
-    editContact(name, newDetails) {
-        let contact = this.findByName(name);
-        if (contact) {
-            Object.assign(contact, newDetails);
+    deleteContact(name) {
+        let index = this.contacts.findIndex(contact => contact.firstName === name);
+        if (index !== -1) {
+            this.contacts.splice(index, 1);
             return true;
         }
         return false;
@@ -14,8 +10,8 @@ class AddressBook {
 }
 
 // Example Usage
-console.log("Before Editing:");
+console.log("Before Deletion:");
 addressBook.displayContacts();
-addressBook.editContact("Vinay", { city: "Pune" });
-console.log("After Editing:");
+addressBook.deleteContact("Vinay");
+console.log("After Deletion:");
 addressBook.displayContacts();
